@@ -1,0 +1,55 @@
+﻿<Window x:Class="かけざんテスト.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="355.97" Width="1192.164">
+
+    <Grid>
+        <StackPanel x:Name="TopPanel" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" >
+            <StackPanel x:Name="ColName" Height="40" Orientation="Horizontal"/>
+            <StackPanel x:Name="AnswerList" Height="50" Orientation="Horizontal"/>
+        </StackPanel>
+        <StackPanel x:Name="MiddlePanel" HorizontalAlignment="Left" Height="100" Margin="0,100,0,0" VerticalAlignment="Top" Width="517" Orientation="Horizontal">
+            <StackPanel.Resources>
+                <Style TargetType="TextBox">
+                    <Setter Property="FontSize" Value="30" />
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="Height" Value="100" />
+                    <Setter Property="Width" Value="100" />
+                    <Setter Property="TextAlignment" Value="Center" />
+                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                    <Setter Property="MaxLength" Value="2" />
+                </Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="FontSize" Value="30" />
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="Height" Value="50" />
+                    <Setter Property="Width" Value="50" />
+                    <Setter Property="TextAlignment" Value="Center" />
+
+                </Style>
+
+            </StackPanel.Resources>
+
+            <TextBox x:Name="LeftBox" TextWrapping="Wrap" Text="{Binding  Path=leftNum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock TextWrapping="Wrap" Text="×"/>
+            <TextBox x:Name="RightBox" TextWrapping="Wrap" Text="{Binding Path=rightNum, UpdateSourceTrigger=LostFocus}" />
+            <TextBlock TextWrapping="Wrap" Text="＝"/>
+            <TextBox x:Name="AnserBox" TextWrapping="Wrap" Text="{Binding Path=answerNum}" />
+
+        </StackPanel>
+        <StackPanel x:Name="BottomPanel" HorizontalAlignment="Left" Height="119" Margin="0,200,0,0" VerticalAlignment="Top" Width="517" Orientation="Horizontal">
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="FontSize" Value="30" />
+                </Style>
+            </StackPanel.Resources>
+
+            <Button x:Name="Answer" Content="こたえ" Click="Answer_Click" Margin="10" IsDefault="True"/>
+            <Button x:Name="Question" Content="もんだい" Click="Question_Click" Margin="10"/>
+            <TextBox x:Name="Timer" TextWrapping="Wrap" Text="{Binding NowTime}" Width="198" FontSize="30" FontWeight="Bold" Margin="0,40,0,39" HorizontalAlignment="Right" />
+        </StackPanel>
+
+    </Grid>
+</Window>
